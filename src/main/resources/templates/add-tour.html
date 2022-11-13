@@ -1,0 +1,97 @@
+<div>
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Let's hike!</h1>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <form action="/tours/add" method="POST">
+                    <input id="id" type="hidden" name="id" th:value="(${tour} != null ? ${tour.getId()} : '')">
+                    <div class="form-group">
+                        <label for="name">Tour name</label>
+                        <input type="text"
+                               class="form-control"
+                               id="name"
+                               name="name"
+                               th:value="(${tour} != null ? ${tour.getName()} : '')"
+                               required
+                               placeholder="Enter tour name">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text"
+                               class="form-control"
+                               id="price"
+                               name="price"
+                               th:value="(${tour} != null ? ${tour.getPrice()} : '')"
+                               placeholder="Price">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="condition">Condition</label>
+                        <input type="text"
+                               class="form-control"
+                               id="condition"
+                               name="condition"
+                               th:value="(${tour} != null ? ${tour.getCondition()} : '')"
+                               placeholder="Not active, Moderate, Active, Very Active">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="persons">Persons</label>
+                        <input type="text"
+                               class="form-control"
+                               id="persons"
+                               name="persons"
+                               th:value="(${tour} != null ? ${tour.getPersons()} : '')"
+                               placeholder="Persons">
+                    </div>
+                    <div class="form-group">
+                        <label>Terrain</label>
+                        <select name="terrain" id="terrain" class="form-control">
+                            <option th:if="${tour} != null"
+                                    th:selected="${tour.getTerrain() != null &&
+                                tour.getTerrain().getId() == ter.getId()}"
+                                    th:each="ter : ${terrains}"
+                                    th:value="${ter.getId()}"
+                                    th:text="${ter.getName()}">
+                            </option>
+                            <option th:if="${tour} == null"
+                                    th:each="ter : ${terrains}"
+                                    th:value="${ter.getId()}"
+                                    th:text="${ter.getName()}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Guide</label>   <!-- greski -->
+                        <select name="guide" id="guide" class="form-control">
+                            <option th:if="${tour} != null"
+                                    th:selected="${tour.getGuide() != null && tour.getGuide().getId() == gui.getId()}"
+                                    th:each="gui : ${guides}"
+                                    th:value="${gui.getId()}"
+                                    th:text="${gui.getName()}">
+
+                            </option>
+                            <option th:if="${tour} == null"
+                                    th:each="gui : ${guides}"
+                                    th:value="${gui.getId()}"
+                                    th:text="${gui.getName()}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                    <a type="button" class="btn btn-primary" href="/tours">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</th:block>
+</div>

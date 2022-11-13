@@ -1,0 +1,58 @@
+
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+  <section class="vh-100">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 text-black">
+
+          <div class="px-5 ms-xl-4">
+            <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085; margin-top: 350px"></i>
+
+          </div>
+
+          <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+
+
+
+            <form class="form-signin mt-xl-5" method="post" action="/login">
+
+              <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign in</h3>
+
+              <div class="form-outline mb-4">
+                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required=""
+                       autofocus="">
+                <label class="form-label" for="username">Username</label>
+              </div>
+
+              <div class="form-outline mb-4">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                       required="">
+                <label class="form-label" for="password">Password</label>
+              </div>
+
+              <div th:text="${param.error}" class="text-danger"></div>
+
+
+
+                <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+
+
+
+              <a href="/register" class="btn btn-block btn-light">Register here</a>
+
+            </form>
+
+          </div>
+          <a href="oauth2/authorization/facebook" style="margin-left: 100px">Login With Facebook</a>
+
+        </div>
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+          <img src="https://th.bing.com/th/id/R.aaa2bea0813acfd46a0b6549e42ef0b9?rik=HIrNJEpiYhO2zA&riu=http%3a%2f%2fthewowstyle.com%2fwp-content%2fuploads%2f2015%2f02%2fbeautiful-mountains-lake.jpg&ehk=n6GcKJAVWVbLvSHtMvQr2kdZe8O5MsTpUHDBUaOOtVE%3d&risl=&pid=ImgRaw&r=0"
+               alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
